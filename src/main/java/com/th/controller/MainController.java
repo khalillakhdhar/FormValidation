@@ -26,12 +26,16 @@ public class MainController {
 	@PostMapping("/add")
 	public String addPerson(@Valid Person person, BindingResult result, Model
 	model) {
+	String message="";	
 	if (result.hasErrors()) {
 	return "add";
+	
 	}
 	else
 	{
 		personRepository.save(person);
+		message="ajouté avec succés";
+		model.addAttribute(message);
 		return "redirect:/";
 	}
 	}
