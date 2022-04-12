@@ -15,14 +15,14 @@ public class Person {
 @Id
 @GeneratedValue(strategy= GenerationType.IDENTITY)
 private Long id;
-@NotEmpty(message = "le nom ne peut pas être vide")
+@NotEmpty(message = "le nom ne doit pas être vide")
 @Size(min = 5)
 private String fullName;
-@NotEmpty(message="le email ne doit pas être vide!")
-@Email(message = "veuillez saisir un email valide!")
+@NotEmpty
+@Email(message = "le email doit etre valide")
 private String email;
-@NotNull(message = "Age est obligatoire")
-@Min(value = 18, message = "l'age minimale autorisé est 18ans!")
+@NotNull
+@Min(value = 18, message ="l utilisateur doit être majeur")
 private Integer age;
 public Long getId() {
 	return id;
